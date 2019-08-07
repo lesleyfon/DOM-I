@@ -58,9 +58,19 @@ ctaTextButton.textContent = siteContent.cta.button;
 ctaTextHOne.textContent = siteContent.cta.h1;
 // end of Cta/
 
-console.log(siteContent["main-content"]);
+
 // mian content img;
 
 const mainContentImg = document.getElementById('middle-img');
-console.log(siteContent["main-content"]["middle-img-src"])
-mainContentImg.setAttribute('src' , siteContent["main-content"]["middle-img-src"])
+mainContentImg.setAttribute('src' , siteContent["main-content"]["middle-img-src"]);
+// main content headers
+let counter  = 0
+const mainContentHeaders = document.querySelectorAll('.text-content h4');
+for (const char in siteContent["main-content"]) {
+  if(char.includes('h4')){
+    counter++
+    mainContentHeaders[counter-1].textContent = siteContent["main-content"][char]
+  }
+
+
+}
