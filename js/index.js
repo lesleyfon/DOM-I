@@ -52,4 +52,5 @@ navItemValues.forEach((a, i)=>{
 // begin cta
 const ctaTextHOne = document.querySelector('.cta-text h1');
 const ctaTextButton = document.querySelector('button');
-console.log(ctaTextButton, ctaTextHOne)
+const ctaImg = document.getElementById('cta-img');
+ctaImg.src = siteContent.cta["img-src"]
