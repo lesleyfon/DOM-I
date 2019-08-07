@@ -58,19 +58,26 @@ ctaTextButton.textContent = siteContent.cta.button;
 ctaTextHOne.textContent = siteContent.cta.h1;
 // end of Cta/
 
-
 // mian content img;
-
 const mainContentImg = document.getElementById('middle-img');
 mainContentImg.setAttribute('src' , siteContent["main-content"]["middle-img-src"]);
 // main content headers
-let counter  = 0
+//index to keep track of elements index in NodeList
+let counter  = 0;
 const mainContentHeaders = document.querySelectorAll('.text-content h4');
+const mainContentP = document.querySelectorAll('.text-content p');
 for (const char in siteContent["main-content"]) {
   if(char.includes('h4')){
-    counter++
-    mainContentHeaders[counter-1].textContent = siteContent["main-content"][char]
+    counter++;
+    mainContentHeaders[counter-1].textContent = siteContent["main-content"][char];
+  }else  if(char.includes('content')){
+    // index to keep track of paragraphs index in the maincontentP 
+    mainContentP[counter-1].textContent = siteContent["main-content"][char];
   }
-
-
 }
+// end of main content
+
+// footer
+const footer = document.querySelector('footer p');
+footer.textContent = siteContent.footer.copyright
+//end of footer
