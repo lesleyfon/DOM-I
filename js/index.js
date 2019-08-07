@@ -76,8 +76,18 @@ for (const char in siteContent["main-content"]) {
   }
 }
 // end of main content
+//contact
+  //contact header
+const contactHeader = document.querySelector('.contact h4');
+contactHeader.textContent = siteContent.contact['contact-h4']
+const contactP = document.querySelectorAll('.contact p')
+contactP[0].textContent = siteContent.contact.address
+contactP[1].textContent = siteContent.contact.email
+contactP[2].textContent = siteContent.contact.phone
+
+console.log(contactP[0])
 
 // footer
 const footer = document.querySelector('footer p');
-footer.textContent = siteContent.footer.copyright
+footer.textContent = siteContent.footer.copyright;
 //end of footer
