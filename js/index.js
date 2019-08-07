@@ -43,7 +43,13 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 const navATags = Array.from(document.querySelectorAll('nav a'));
 //get the value of the object using and looping though each value and asigning it as a text content to the navItems
-let aT = Object.values(siteContent.nav).splice(0, Object.keys(siteContent.nav).length -1)
-aT.forEach((a, i)=>{
+let navItemValues = Object.values(siteContent.nav).splice(0, Object.keys(siteContent.nav).length -1);
+navItemValues.forEach((a, i)=>{
   navATags[i].textContent = a;
 });
+// end of header
+
+// begin cta
+const ctaTextHOne = document.querySelector('.cta-text h1');
+const ctaTextButton = document.querySelector('button');
+console.log(ctaTextButton, ctaTextHOne)
