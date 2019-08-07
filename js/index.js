@@ -56,3 +56,11 @@ const ctaImg = document.getElementById('cta-img');
 ctaImg.src = siteContent.cta["img-src"];
 ctaTextButton.textContent = siteContent.cta.button;
 ctaTextHOne.textContent = siteContent.cta.h1;
+// end of Cta/
+
+console.log(siteContent["main-content"]);
+// mian content img;
+
+const mainContentImg = document.getElementById('middle-img');
+console.log(siteContent["main-content"]["middle-img-src"])
+mainContentImg.setAttribute('src' , siteContent["main-content"]["middle-img-src"])
