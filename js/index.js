@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": "DOM  Is  Awesome",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -44,18 +44,22 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 const navATags = Array.from(document.querySelectorAll('nav a'));
 //get the value of the object using and looping though each value and asigning it as a text content to the navItems
 let navItemValues = Object.values(siteContent.nav).splice(0, Object.keys(siteContent.nav).length -1);
+// hover styles
+const hover = 'a:hover{font-weight: bold}'
 navItemValues.forEach((a, i)=>{
   navATags[i].textContent = a;
+  navATags[i].style.color ='green';
 });
 // end of header
 
 // begin cta
+console.log(typeof siteContent.cta.h1)
 const ctaTextHOne = document.querySelector('.cta-text h1');
-const ctaTextButton = document.querySelector('button');
+const ctaTextButton = document.querySelector('button') ;
 const ctaImg = document.getElementById('cta-img');
 ctaImg.src = siteContent.cta["img-src"];
 ctaTextButton.textContent = siteContent.cta.button;
-ctaTextHOne.textContent = siteContent.cta.h1;
+ctaTextHOne.innerHTML = siteContent.cta.h1.split(" ").join('<br>');
 // end of Cta/
 
 // mian content img;
@@ -64,6 +68,7 @@ mainContentImg.setAttribute('src' , siteContent["main-content"]["middle-img-src"
 // main content headers
 //index to keep track of elements index in NodeList
 let counter  = 0;
+let s = document.querySelectorAll('.text-content')
 const mainContentHeaders = document.querySelectorAll('.text-content h4');
 const mainContentP = document.querySelectorAll('.text-content p');
 for (const char in siteContent["main-content"]) {
@@ -88,3 +93,32 @@ contactP[2].textContent = siteContent.contact.phone;
 const footer = document.querySelector('footer p');
 footer.textContent = siteContent.footer.copyright;
 //end of footer
+
+const newMainContent =  {
+  "features-h4":"Features",
+  "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+  "about-h4":"About",
+  "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+  "services-h4":"Services",
+  "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+}
+let div = ''
+for (const x in newMainContent) {
+ 
+ div += `
+  <div class="text-content ">
+    ${
+      // if x includes h4 
+      x.includes('h4') ?
+      // do work 
+      '<h4>'+ newMainContent[x] + '</h4>' 
+      // else
+      : 
+      // do some other work
+      "<p>" + newMainContent[x] + '</p>'
+    }
+    </div>
+  `   
+}
+// console.log(div)
+// document.querySelector('.bottom-content').innerHTML = div
